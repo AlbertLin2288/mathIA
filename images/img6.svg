@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512">
+<line x1="128" y1="512" x2="128" y2="0" stroke="black" stroke-width="2"/>
+<line x1="0" y1="144" x2="512" y2="80" stroke="black" stroke-width="2"/>
+<line x1="0" y1="176" x2="512" y2="240" stroke="black" stroke-width="2"/>
+<line x1="512" y1="176" x2="0" y2="112" stroke="black" stroke-width="2"/>
+<line x1="512" y1="144" x2="0" y2="208" stroke="black" stroke-width="2"/>
+<line x1="512" y1="112" x2="0" y2="304" stroke="blue" stroke-width="2"/>
+<line x1="512" y1="304" x2="0" y2="240" stroke="blue" stroke-width="2"/>
+<circle r="10" cx="128" cy="128" fill="black" />
+<circle r="10" cx="128" cy="192" fill="black" />
+<circle r="10" cx="384" cy="160" fill="black" />
+<circle r="10" cx="128" cy="256" fill="blue" />
+<circle r="10" cx="256" cy="208" fill="red" />
+</svg>

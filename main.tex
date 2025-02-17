@@ -1,0 +1,226 @@
+\documentclass[a4paper, 12pt]{article}
+%Paragraph jumps and indentation
+\setlength{\parskip}{1.6em}
+\setlength{\parindent}{1.25cm}
+%Border
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+%Double spacing
+\usepackage{setspace}
+\usepackage{indentfirst}
+\doublespacing
+%Packages
+\usepackage{amsmath}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+%Images
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{wrapfig}
+\usepackage{float}
+%Tables
+\usepackage{multirow}
+\usepackage{array}
+\titleformat{\section}
+{\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+%Equation numbering
+\counterwithin{equation}{section}
+\usepackage{hyperref}
+\urlstyle{same}
+\hypersetup{pdfborder=0 0 0}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{csquotes}
+\usepackage[toc,page]{appendix}
+
+\usepackage{svg}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{4cm}
+{\huge\textbf{???}}
+\end{center}
+\vspace{1cm}
+\begin{flushright}
+Title\\
+Mathematics, Exam Session of 2025\\
+\end{flushright}
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+\section{Introduction}
+Last year, in January, I participated in the  first round of Netherland Mathematics Olympiad. While the result is satisfactory, there is a problem that no one but me got wrong. So I would really like to prove that I'm better than that, by making the problem harder, and then solve it.
+The problem is:
+
+\begin{displayquote}
+Xander draws five points and a number of infinitely long lines on an infinite sheet of paper. He does this in such a way that on each line there are at least two of those points and that the lines intersect only at points that Xander has drawn.
+
+What is the maximum number of lines Xander could have drawn?\footnote{\href{https://wiskundeolympiade.nl/phocadownload/opgaven/1e-ronde/2024/Problems.pdf}{https://wiskundeolympiade.nl/phocadownload/opgaven/1e-ronde/2024/Problems.pdf}}
+\end{displayquote}
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \includesvg[width=0.25\columnwidth]{img1.svg}
+    \caption{answer to the original problem}
+    \label{fig:ans}
+\end{wrapfigure}
+The answer for this question is $6$, as shown in Figure \ref{fig:ans}. The organization also gave a proof\footnote{Which can be found at \href{https://wiskundeolympiade.nl/phocadownload/opgaven/1e-ronde/2024/Solutions.pdf}{https://wiskundeolympiade.nl/phocadownload/opgaven/1e-ronde/2024/Solutions.pdf}. Later in this essay, I will provide a different proof.}. But to prove my ability, I need to make it harder. The question asks for the maximal number of lines given $5$ points. So how about trying to solve the problem for any number of points?
+
+For notation, I will use $n$ to denote the number of points, $m_n$ to denote the maximum number of lines with $n$ points, and I will use ``point(s)" and ``dot(s)" interchangeably. ``graph" will refer to a way to draw the lines and dots.
+\clearpage
+
+\section{Solving the problem}
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \includesvg[width=0.25\columnwidth]{img2.svg}
+    \caption{general solution with $n=6$}
+    \label{fig:gen_6}
+\end{wrapfigure}
+One method I found efficient in solving those type of problems is trying to prove some random hypothesis. If the hypothesis is true, you are just doing what need to be done. If it's false, it's much easier to find an exception to disprove the hypothesis after trying to prove it and struggle on the weak point of the logic. But to do that, one first need to have an idea what the answer will be like. So I tried to solve the problem for a few given $n$. Soon, I managed to find a solution that seems to work for all $n\geq 3$, as shown in Figure \ref{fig:gen_6}.
+% connect the 2 paragrah
+
+By arranging $n-1$ dots in a line and the last one above it, we can draw $n-1$ lines between the last dot and the dots on the line. Together with the line by the $n-1$ dots, we can get $n$ lines in total. Hence, we can establish for $n\geq 3$, that we can draw at least $n$ lines.
+
+And now, I hypothesize that this is also the upper bound. As shown above, this does not apply to $n=5$, where it's possible to draw 6 lines. But I can try to prove it's true for $n>5$.
+
+After some works, I managed to acquire a proof for that. Since my process is a bit messy, I have rearranged the order in which lemmas are presented. For brevity, some less important and obvious conclusion will be explained in the footnote.
+
+First, I will show that there is no way to construct the graph where each dot is on at least three lines and each line has at least two dots.
+
+Proof:
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \includesvg[width=0.25\columnwidth]{img4.svg}
+    \caption{The first two dots and the intersection their lines create}
+    \label{fig:single_2_dot}
+    % \end{wrapfigure}
+    % \begin{wrapfigure}{r}{0.25\textwidth}
+    \vspace{1.5\baselineskip}
+    \includesvg[width=0.25\columnwidth]{img5.svg}
+    \caption{Same as Figure \ref{fig:single_2_dot}, but with parallel line. Main line it on the left}
+    \label{fig:double_2_dot}
+    \vspace{-1.5\baselineskip}
+\end{wrapfigure}
+Suppose that such a graph does exist. Then, we can choose a line in it, which we will refer to as main line. There must be at least two dots on it, with both of them lying on at least two other lines. We will draw the diagram in a way such that the main line appears vertical. We will refer to the topmost dot as the first dot, the second-topmost dot as the second dot and so on. We will try to construct such a graph, starting with only the lines that are parallel to the main line and the first two dots.
+
+After adding all the lines that pass through the first two dots, it's easy to show that there will be an intersection of exactly two lines.\footnote{Since there are more than one line on the first dot and the second dot, there exist a pair of non-parallel lines that does not intersect on the main line. Therefore, there exists an intersection that does not lie on the main line. Suppose that all intersections lie on at least three lines. Since beside the main line and lines that are parallel to it, all lines(that have been drawn so far) must pass through either the first dot or the second dot, the intersection cannot lie on three lines unless one of the line is the is parallel to the main line. Therefore, there exist a line parallel to the main line, and no two lines intersect between the main line and the closest parallel line. Now consider the topmost intersection on the closest parallel line. A line that pass through the second dot must pass through it, and a line that pass through the first dot must intersect below this intersection. Those two line would create an intersection between the two parallel lines, creating a contradiction. Therefore the assumption must be false. } From now on we will only consider the right side of the main line (If no intersection of exactly two lines are on the right, flip the diagram horizontally). Since we assume that every dot is on at least 3 lines, one more line must pass through this dot, and as we have already drawn all the lines parallel to main line, the third line will intersect with the main line at another point. And since we are adding points from top to bottom, the new point must be below the second dot, necessitate the existence of a third dot (Which could be a different dot than the aforementioned intersection).
+
+\begin{wrapfigure}{R}{0.25\textwidth}
+    \vspace{-2cm}
+    \includesvg[width=0.25\columnwidth]{img6.svg}
+    \caption{Trying to fill the unfilled intersection. Note the new intersection in closer to the main line}
+    \label{fig:single_3_dot}
+    \vspace{-1\baselineskip}
+\end{wrapfigure}
+If we add the third dot, it would require at least two more lines, which will create more unfilled intersection\footnote{Intersection of exactly two lines. It means a dot must be there, and therefore another line must pass through it}, as shown in Figure \ref{fig:single_3_dot}\footnote{While no parallel line is shown here, the following proof will work when there is parallel line, which will be explained in footnote \ref{footnote_para_1}}. This would require more lines to exist, which would need more dots on main line. We will now prove that the graph would never satisfy the condition.
+
+Suppose that after adding some number of dots (from top to bottom) and all the lines that they are on, the dot closest to the main line is still unfilled and not on the bottom-most line of the bottom-most dot\footnote{Here, the bottom-most line refer to the line with the lowest (most negative) gradient}\footnote{In order for a intersection to be below the bottom-most line, it must be on a line that intersect with it, it couldn't be the closest dot to main line. And as the dot closest to main line does not lie on the bottom-most line, the closest dot must be above the bottom-most line}. As a result, at least one more line needs to be added, which would intersect with the main line and necessitate the existence of another dot. Now, we will add all lines that pass through the next dot. If one of the new line pass through the intersection, it will create a new unfilled intersection with the bottom-most line, which will be closer to the main line, as shown in Figure \ref{fig:single_3_dot}. Any other intersection created can only involve two lines. Thus, the intersection closest to the main line is still unfilled.\footnote{This allows us to disregard any parallel lines, as we would only need to look at points strictly closer than the closest intersection, which can't be farther than the parallel line.\label{footnote_para_1}}
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \vspace{-1\baselineskip}
+    \includesvg[width=0.25\columnwidth]{bottom_line_intersect.svg}
+    \caption{If the bottom line intersect with another line.}
+    \label{fig:bottom_line_intersect}
+\end{wrapfigure}
+The new dot will come will more than one line. If the new bottom line intersects another line, the other new line(s) will intersect with the same line closer to the main line, as shown in Figure \ref{fig:bottom_line_intersect}.
+
+Thus, the construction of the graph is never complete, contradicting the assumption that such a graph exists. Therefore, no graph exists to allow each dot to be on at least three lines.
+
+
+Now, we propose that for $n\geq5$, $m_n\leq m_{n-1}+1$.
+
+Proof:
+
+According to the previous proof, given a graph with $n>1$, there exists a dot that is on no more than two lines. We will show that in every cases, it is possible to remove the dot and construct a new graph with more than $m_{n}-1$ lines:
+
+Case 1, the dot is on $0$ lines. In this case, we can simply remove the dot. The new graph will have $n-1$ dots and $m_n$ lines. Therefore, $m_{n-1}\geq m_{n}$, or $m_{n}\leq m_{n-1}$.
+
+Case 2, the dot is on $1$ line. In this case, we can remove both the dot and the line. In this case, $m_{n-1}\geq m_{n}-1$, or $m_{n}\leq m_{n-1}+1$.
+
+Case 3, the dot is on $2$ lines, and one of the lines has more than 2 dots lying on it. In this case we can remove the dot and the other line. In this case, $m_{n-1}\geq m_{n}-1$, or, $m_{n}\leq m_{n-1}+1$.\footnote{The reason this proof can't be used for situation in Figure \ref{fig:exception_1} is that it would leave the line with only one dot on it.}
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \vspace{-0.5\baselineskip}
+    \includesvg[width=0.25\columnwidth]{img3.svg}
+    \caption{3 potential lines when both line have only 2 dots}
+    \label{fig:exception_1}
+    \vspace{-1\baselineskip}
+\end{wrapfigure}
+ Case 4, the dot is on $2$ lines, and both lines have only 2 dots on them. In this case, there can be only up to 5 lines, as shown in Figure \ref{fig:exception_1}. To prove this is so, consider the vertical line on the left. If there is another line not parallel to it, then they must intersect at the dot at top left. The same reasoning apply to the bottom line, leaving only 3 ways to add a line. Thus, in this case, $m_{n}\leq{5}$.
+
+Thus, $m_{n}\leq\max(m_{n-1}+1,5)$. For $m_{n-1}\geq5$, $m_n\leq m_{n-1}+1$.
+Since we already know $m_n\geq n$, for $n\geq5$, $m_{n-1}+1\geq n\ge5$, so $m_n\leq m_{n-1}+1$.
+
+For $n=3$, it's trivial to see the maximum number of lines is $3$. From the above proof, $m_4\leq\max(m_3+1,5)=5$ and $m_5\leq m_4+1\leq 5+1=6$.
+
+For $n=6$, it can be proven that $m_n=6$. However, since the proof is long and tedious, it can be found in appendix \ref{appendix:proof_n6}.
+
+% And then, we shall show that for $n=6$, $m_n=6$.
+
+% Since $m_5=6$, according to the previous proof, $m_6\leq7$. Suppose $m_6>6$, then $m_6=7$.
+
+% From our first conclusion, we know there exist a dot that lies on 2 or less lines. Since $m_6=m_5+1$, from the second conclusion we know the dot can't lie on 0 lines.
+
+% If the dot lies on 1 line, the removal of the dot would create a graph with $n=5$ and $m=7$. Hence, the removal must have caused the line to have only one dot. So all other lines must either be parallel to the line, or intersect with it at that dot.
+
+% Let the number of lines parallel to it be $a$, with $0\leq a\leq6$. Since $n\leq6$, we get:
+% \begin{align}
+% n=2+(m-1-a)a&\leq6\\
+% -a^2+6a+2&\leq6\\
+% (a-3)^2&\geq5\\
+% a=0\text{ or }a=6
+% \end{align}
+
+% \begin{wrapfigure}{r}{0.25\textwidth}
+%     \vspace{-0.5\baselineskip}
+%     \includesvg[width=0.25\columnwidth]{n6m7_1_1.svg}
+%     \caption{configuration when $a=0$}
+%     \label{fig:n6m7_1_1}
+%     \vspace{-1\baselineskip}
+% \end{wrapfigure}
+% If $a=0$ or $a=6$, then some lines would have only one intersection on it, requiring another dot on it. This means $n>6$ as shown in Figure \ref{fig:n6m7_1_1}, contradicting the assumption $n=6$.
+
+% For the situation where the dot lies on two line, instead of proving such a graph does not exist, I decided to use computer to brute force all possibility, and show that such arrangement is impossible. The code can be found in Appendix \ref{appendix:code}.
+Since for $n=6$, $m_n=6=n$, by induction, for any $n\geq6$, $n\leq m_n\leq n$. Thus, $m_n=n$.
+
+Hence, the answer to our question is: 
+
+\begin{equation}
+m_n= 
+\begin{cases}
+    0,& \text{if } n=1\\
+    1,& \text{if } n=2\\
+    3,& \text{if } n=3\\
+    5,& \text{if } n=4\\
+    6,& \text{if } n=5\\
+    n,& \text{otherwise}
+\end{cases}
+\end{equation}
+
+\clearpage
+\section{conclusion}
+There you have it. We have not only found the answer to the problem, but also answer for any value of $n$ if they change it. Although it seems they could have only chosen $n=4$ or $n=5$, since other values are all too easy to find. Not too easy to prove, though. Many times I thought I have gotten a good proof, but then found that I didn't consider how multiple lines could intersect at the same point. This drove me to put an upper bound for intersection of lines, leading me to prove that there is no graph such that each line has at least two points with each points on at least three lines. While it's a really interesting conclusion, I feel like the proof could be less messy. 
+% For $n=6$, I would prefer having an elegant proof, but most method I thought of have way too many special cases that need to be listed, so I have to resort to writing computer program to assist me. 
+Overall, I believe this proof is rather rigorous, although there are certain points that is difficult to convey without drawing a dozen diagram.
+
+% \clearpage
+% \section{Work cited}
+% \begin{description}
+% \item 
+% \end{description}
+
+\clearpage
+\begin{appendices}
+
+\section{Proof for n=6}
+\label{appendix:proof_n6}
+stuff
+
+
+\end{appendices}
+
+\end{document}
