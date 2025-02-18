@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="1024" viewBox="0 0 768 1024">
+    <style>
+        line{
+            stroke-width: 2;
+            stroke: black;
+        }
+        circle{
+            fill: black;
+            r: 10;
+        }
+        text {
+            font: 36px Computer-Modern;
+        }
+        .small {
+            font: 24px Computer-Modern;
+        }
+        circle.rd {
+            fill: red;
+        }
+        line.rd {
+            stroke: red;
+            stroke-dasharray: 32 16;
+        }
+    </style>
+    <!-- main -->
+    <line x1="128" x2="128" y1="0" y2="1024"/>
+    <line x1="640" x2="640" y1="0" y2="1024"/>
+    <line x1="0" x2="768" y1="832" y2="448"/>
+    <line x1="0" x2="768" y1="192" y2="576"/>
+    <line x1="0" x2="768" y1="128" y2="896" class="rd"/>
+    <line x1="0" x2="768" y1="288" y2="96" class="rd"/>
+    <circle cx="128" cy="256"/><!-- B -->
+    <circle cx="128" cy="768"/>
+    <circle cx="640" cy="512"/><!-- A -->
+    <circle cx="640" cy="128" class="rd"/><!-- C -->
+    <circle cx="469.33" cy="597.33" class="rd"/><!-- C' -->
+    <text x="647" y="490">A</text>
+    <text x="135" y="234">B</text>
+    <text x="647" y="106">C</text>
+    <text x="465" y="580">C'</text>
+
+    <!-- Coord system -->
+    <svg x="330" y="768">
+        <line x1="9" x2="109" y1="105" y2="105"/>
+        <line x1="9" x2="9" y1="105" y2="5"/>
+        <line x1="109" x2="94" y1="105" y2="110"/>
+        <line x1="109" x2="94" y1="105" y2="100"/>
+        <line x1="9" x2="4" y1="5" y2="20"/>
+        <line x1="9" x2="14" y1="5" y2="20"/>
+        <text x="19" y="20" class="small">x</text>
+        <text x="94" y="92" class="small">y</text>
+    </svg>
+</svg>
