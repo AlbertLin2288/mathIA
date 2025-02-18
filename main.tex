@@ -37,6 +37,9 @@
 
 \usepackage{svg}
 
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
 \begin{document}
 
 \begin{titlepage}
@@ -89,9 +92,23 @@ And now, I hypothesize that this is also the upper bound. As shown above, this d
 
 After some works, I managed to acquire a proof for that. Since my process is a bit messy, I have rearranged the order in which lemmas are presented. For brevity, some less important and obvious conclusion will be explained in the footnote.
 
-First, I will show that there is no way to construct the graph where each dot is on at least three lines and each line has at least two dots.
+\begin{theorem}
+Given $m>0$ lines lying on a plane, if every line intersects at more than one point, then there exist an intersection of only two lines.
+\end{theorem}
+% First, I will show that there is no way to construct the graph where each dot is on at least three lines and each line has at least two dots.
 
 Proof:
+
+Given $m>0$ lines on a plane, we can choose one line as the y axis and construct a coordinate system. Suppose there is no intersection of less than two lines. 
+
+Consider the intersection with the least value of $|x|$ that does not lies on the y axis (if there are multiple, choose the one with the largest $y$ value). According to our assumption, on this point lies at least three lines.
+
+Such a point must exist. To show so, suppose no such point exist, that is, every intersection happens on the y axis. Then, since every line must intersect at two place, every line must lie on the y axis. Therefore, no intersection exist, contradicting the assumption that every line has at least two intersection. Hence, the assumption must be false.
+
+% note: diagram needed to clarify, add name
+If one of the line that pass through it is parallel to y axis. Since we chose the point with the largest $y$ value, the parallel line does not have any intersection above the current point. % thus, the line with the lowest grandient intersect y axis with another line that must intersect the third line closer. This create an contridiction with the assumption that this is the clostest
+
+% Otherwise, the line with the second-largest grandient must intersect.
 
 \begin{wrapfigure}{r}{0.25\textwidth}
     \includesvg[width=0.25\columnwidth]{img4.svg}
