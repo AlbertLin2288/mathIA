@@ -26,41 +26,43 @@
         circle.rd {
             fill: red;
         }
+        text.rd {
+            fill: red;
+        }
         line.rd {
             stroke: red;
             stroke-dasharray: 32 16;
         }
-        text.rd {
-            fill: red;
-        }
     </style>
+
     <!-- main -->
     <line x1="128" x2="128" y1="0" y2="1024"/><!-- l0 -->
-    <line x1="640" x2="640" y1="0" y2="1024"/><!-- l1 -->
-    <line x1="0" x2="768" y1="192" y2="576"/><!-- l2 -->
-    <line x1="0" x2="768" y1="832" y2="448"/><!-- l3 -->
-    <line x1="0" x2="768" y1="128" y2="896" class="rd"/>
-    <line x1="0" x2="768" y1="288" y2="96" class="rd"/>
-    <circle cx="128" cy="256"/><!-- B -->
-    <circle cx="128" cy="768"/>
+    <line x1="0" x2="768" y1="32" y2="608"/><!-- l1 -->
+    <line x1="0" x2="768" y1="512" y2="512"/><!--  l2 -->
+    <line x1="0" x2="768" y1="992" y2="416"/><!-- l3 -->
+    <line x1="0" x2="768" y1="608" y2="32" class="rd"/>
+    <line x1="0" x2="768" y1="416" y2="992" class="rd"/>
     <circle cx="640" cy="512"/><!-- A -->
-    <circle cx="640" cy="128" class="rd"/><!-- C -->
-    <circle cx="469.33" cy="597.33" class="rd"/><!-- C' -->
-    <!-- label -->
-    <text x="647" y="470">A</text>
-    <text x="135" y="234">B</text>
-    <text x="647" y="106" class="rd">C</text>
-    <text x="460" y="575" class="rd">C'</text>
-    <text x="80" y="512" class="line">
+    <circle cx="128" cy="512"/><!-- B -->
+    <circle cx="128" cy="128"/>
+    <circle cx="128" cy="896"/>
+    <circle cx="384" cy="320" class="rd"/><!-- C -->
+    <circle cx="384" cy="706" class="rd"/><!-- C' -->
+    <text x="615" y="470">A</text>
+    <text x="135" y="470">B</text>
+    <text x="360" y="280" class="rd">C</text>
+    <text x="360" y="660" class="rd">C'</text>
+    
+    <text x="80" y="720" class="line">
         l<tspan>0</tspan>
     </text>
-    <text x="647" y="340" class="line">
+    <text x="240" y="200" class="line">
         l<tspan>1</tspan>
     </text>
-    <text x="347" y="340" class="line">
+    <text x="365" y="500" class="line">
         l<tspan>2</tspan>
     </text>
-    <text x="347" y="720" class="line">
+    <text x="240" y="870" class="line">
         l<tspan>3</tspan>
     </text>
 

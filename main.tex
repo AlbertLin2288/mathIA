@@ -106,14 +106,14 @@ Consider the intersection that is closest to $l_0$ but does not lies on it (if t
 Such a point must exists. To show so, suppose no such point exists, that is, every intersection lies on $l_0$. Since every line must intersect at at least two place, there must be a line which intersect with $l_0$. However, since two lines can only intersect once, and every intersection in on $l_0$, the new line would intersect only once, creating an contradiction. Hence, the assumption must be false and such a point exists.
 
 \begin{wrapfigure}{r}{0.25\textwidth}
-    \includesvg[width=0.25\columnwidth]{triple_intersect_para_1.svg}
+    \includesvg[inkscapelatex=false,width=0.25\columnwidth]{triple_intersect_para_1.svg}
     \caption{Contradicting points as a result of the assumption}
     \label{fig:triple_intersect_para_1}
     % \vspace{-1\baselineskip}
 \end{wrapfigure}
-If one of the line that pass through point A is parallel to $l_0$, which we will refer to as $l_1$. Then since we chose A to be the point with the largest $y$ value when distance to $l_0$ is the same, $l_1$ does not have any intersection above point A. At least two other lines pass through point A. Among those lines, we will denote the line with the lowest gradient as line $l_2$, the line with the second lowest gradient as $l_3$, and the intersection of $l_0$ and $l_2$ as point B. There must be a third line that pass through point B. However, if the third line has a larger gradient, it would intersects with line $l_1$ at point C, above point A. And if the third line has a lowest gradient than line $l_2$, it would intersect with $l_3$ at point C', which is closer to line $l_0$ than point A, creating a contradiction.
+If one of the line that pass through point A is parallel to $l_0$, which we will refer to as $l_1$. Then since we chose A to be the point with the largest $y$ value when distance to $l_0$ is the same, $l_1$ does not have any intersection above point A. At least two other lines pass through point A. Among those lines, we will denote the line with the lowest gradient(most negative) as line $l_2$, the line with the second lowest gradient as $l_3$, and the intersection of $l_0$ and $l_2$ as point B. There must be a third line that pass through point B. However, if the third line has a larger gradient, it would intersects with line $l_1$ at point C, above point A. And if the third line has a lowest gradient than line $l_2$, it would intersect with $l_3$ at point C', which is closer to line $l_0$ than point A, creating a contradiction.
 
-% Otherwise, the line with the second-largest grandient must intersect.
+Otherwise, all lines that pass through point A is not parallel to line $l_0$ and must intersect with it. We will call the line with the lowest gradient $l_1$, the line with the second lowest gradient $l_2$ and the line with the largest gradient $l_3$. $l_2$ intersect with $l_0$ at point B.
 
 
 % pending deletation
