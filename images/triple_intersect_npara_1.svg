@@ -8,20 +8,24 @@
         }
         circle{
             fill: black;
-            r: 10;
+        }
+        svg {
+            font-family: CMU Serif;
         }
         text {
-            font: 72px Computer-Modern;
+            font-size: 72px;
         }
         .small {
-            font: 48px Computer-Modern;
+            font-size: 48px;
         }
         .line {
-            font: italic 72px Computer-Modern;
+            font-size: 72px;
+            font-style: italic;
         }
         .line>tspan {
             vertical-align: sub;
-            font: italic 36px Computer-Modern;
+            font-style: italic;
+            font-size: 36px;
         }
         circle.rd {
             fill: red;
@@ -42,12 +46,12 @@
     <line x1="0" x2="768" y1="992" y2="416"/><!-- l3 -->
     <line x1="0" x2="768" y1="608" y2="32" class="rd"/>
     <line x1="0" x2="768" y1="416" y2="992" class="rd"/>
-    <circle cx="640" cy="512"/><!-- A -->
-    <circle cx="128" cy="512"/><!-- B -->
-    <circle cx="128" cy="128"/>
-    <circle cx="128" cy="896"/>
-    <circle cx="384" cy="320" class="rd"/><!-- C -->
-    <circle cx="384" cy="706" class="rd"/><!-- C' -->
+    <circle r="10" cx="640" cy="512"/><!-- A -->
+    <circle r="10" cx="128" cy="512"/><!-- B -->
+    <circle r="10" cx="128" cy="128"/>
+    <circle r="10" cx="128" cy="896"/>
+    <circle r="10" cx="384" cy="320" class="rd"/><!-- C -->
+    <circle r="10" cx="384" cy="706" class="rd"/><!-- C' -->
     <text x="615" y="470">A</text>
     <text x="135" y="470">B</text>
     <text x="360" y="280" class="rd">C</text>

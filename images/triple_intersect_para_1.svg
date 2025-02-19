@@ -8,20 +8,23 @@
         }
         circle{
             fill: black;
-            r: 10;
+        }
+        svg {
+            font-family: CMU Serif;
         }
         text {
-            font: 72px Computer-Modern;
+            font-size: 72px;
         }
         .small {
-            font: 48px Computer-Modern;
+            font-size: 48px;
         }
         .line {
-            font: italic 72px Computer-Modern;
+            font-style: italic;
+            font-size: 72px;
         }
         .line>tspan {
             vertical-align: sub;
-            font: italic 36px Computer-Modern;
+            font-size: 36px;
         }
         circle.rd {
             fill: red;
@@ -41,11 +44,11 @@
     <line x1="0" x2="768" y1="832" y2="448"/><!-- l3 -->
     <line x1="0" x2="768" y1="128" y2="896" class="rd"/>
     <line x1="0" x2="768" y1="288" y2="96" class="rd"/>
-    <circle cx="128" cy="256"/><!-- B -->
-    <circle cx="128" cy="768"/>
-    <circle cx="640" cy="512"/><!-- A -->
-    <circle cx="640" cy="128" class="rd"/><!-- C -->
-    <circle cx="469.33" cy="597.33" class="rd"/><!-- C' -->
+    <circle r="10" cx="128" cy="256"/><!-- B -->
+    <circle r="10" cx="128" cy="768"/>
+    <circle r="10" cx="640" cy="512"/><!-- A -->
+    <circle r="10" cx="640" cy="128" class="rd"/><!-- C -->
+    <circle r="10" cx="469.33" cy="597.33" class="rd"/><!-- C' -->
     <!-- label -->
     <text x="647" y="470">A</text>
     <text x="135" y="234">B</text>

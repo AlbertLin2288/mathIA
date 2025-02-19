@@ -2,7 +2,10 @@
 %Paragraph jumps and indentation
 \setlength{\parskip}{1.6em}
 \setlength{\parindent}{1.25cm}
-%Border
+% indent block
+\newenvironment{my_indent}
+ {\xdef\mypind{\the\parindent}\par\begingroup\leftskip\parindent\setlength{\parindent}{0pt}}
+ {\par\endgroup\setlength{\parindent}{\mypind{}}}
 \usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
 %Double spacing
 \usepackage{setspace}
@@ -10,6 +13,7 @@
 \doublespacing
 %Packages
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{mathtools}
 \usepackage{amsfonts}
@@ -34,10 +38,13 @@
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{csquotes}
 \usepackage[toc,page]{appendix}
-
 \usepackage{svg}
+% correct figure and caption
+\newcommand{\mycorf}{
+    \leftskip-\mypind
+    \captionsetup{margin={-\mypind,\mypind}}}
 
-\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 
 \begin{document}
@@ -68,9 +75,11 @@ What is the maximum number of lines Xander could have drawn?\footnote{\href{http
 \end{displayquote}
 
 \begin{wrapfigure}{r}{0.25\textwidth}
-    \includesvg[width=0.25\columnwidth]{img1.svg}
+    \vspace{-0.8\baselineskip}
+    \includesvg[width=0.25\columnwidth]{ans1.svg}
     \caption{answer to the original problem}
     \label{fig:ans}
+    \vspace{-1\baselineskip}
 \end{wrapfigure}
 The answer for this question is $6$, as shown in Figure \ref{fig:ans}. The organization also gave a proof\footnote{Which can be found at \href{https://wiskundeolympiade.nl/phocadownload/opgaven/1e-ronde/2024/Solutions.pdf}{https://wiskundeolympiade.nl/phocadownload/opgaven/1e-ronde/2024/Solutions.pdf}. Later in this essay, I will provide a different proof.}. But to prove my ability, I need to make it harder. The question asks for the maximal number of lines given $5$ points. So how about trying to solve the problem for any number of points?
 
@@ -79,7 +88,7 @@ For notation, I will use $n$ to denote the number of points, $m_n$ to denote the
 
 \section{Solving the problem}
 \begin{wrapfigure}{r}{0.25\textwidth}
-    \includesvg[width=0.25\columnwidth]{img2.svg}
+    \includesvg[width=0.25\columnwidth]{gen_6.svg}
     \caption{general solution with $n=6$}
     \label{fig:gen_6}
 \end{wrapfigure}
@@ -93,12 +102,14 @@ And now, I hypothesize that this is also the upper bound. As shown above, this d
 After some works, I managed to acquire a proof for that. Since my process is a bit messy, I have rearranged the order in which lemmas are presented. For brevity, some less important and obvious conclusion will be explained in the footnote.
 
 \begin{theorem}
+\label{theorem:three_intersection}
 Given $m>0$ lines lying on a plane, if every line intersects at more than one point, then there exist an intersection of only two lines.
 \end{theorem}
 % First, I will show that there is no way to construct the graph where each dot is on at least three lines and each line has at least two dots.
 
-Proof:
-
+\noindent$Proof.$
+\vspace{\dimexpr-\parskip-\baselineskip}
+\begin{my_indent}
 Given $m>0$ lines on a plane. We will choose one line as the base line($l_0$), and construct a coordinate system with y axis parallel to $l_0$. Suppose there is no intersection of less than two lines. 
 
 Consider the intersection that is closest to $l_0$ but does not lies on it (if there are multiple, choose the one with the largest $y$ value). We will name this point A. We can, without loss of generality, assume that point A is to the right of $l_0$. According to our assumption, at least three lines pass through point A.
@@ -106,6 +117,7 @@ Consider the intersection that is closest to $l_0$ but does not lies on it (if t
 Such a point must exists. To show so, suppose no such point exists, that is, every intersection lies on $l_0$. Since every line must intersect at at least two place, there must be a line which intersect with $l_0$. However, since two lines can only intersect once, and every intersection in on $l_0$, the new line would intersect only once, creating an contradiction. Hence, the assumption must be false and such a point exists.
 
 \begin{wrapfigure}{r}{0.25\textwidth}
+    \mycorf
     \includesvg[inkscapelatex=false,width=0.25\columnwidth]{triple_intersect_para_1.svg}
     \caption{Contradicting points as a result of the assumption}
     \label{fig:triple_intersect_para_1}
@@ -113,53 +125,27 @@ Such a point must exists. To show so, suppose no such point exists, that is, eve
 \end{wrapfigure}
 If one of the line that pass through point A is parallel to $l_0$, which we will refer to as $l_1$. Then since we chose A to be the point with the largest $y$ value when distance to $l_0$ is the same, $l_1$ does not have any intersection above point A. At least two other lines pass through point A. Among those lines, we will denote the line with the lowest gradient(most negative) as line $l_2$, the line with the second lowest gradient as $l_3$, and the intersection of $l_0$ and $l_2$ as point B. There must be a third line that pass through point B. However, if the third line has a larger gradient, it would intersects with line $l_1$ at point C, above point A. And if the third line has a lowest gradient than line $l_2$, it would intersect with $l_3$ at point C', which is closer to line $l_0$ than point A, creating a contradiction.
 
-Otherwise, all lines that pass through point A is not parallel to line $l_0$ and must intersect with it. We will call the line with the lowest gradient $l_1$, the line with the second lowest gradient $l_2$ and the line with the largest gradient $l_3$. $l_2$ intersect with $l_0$ at point B.
-
-
-% pending deletation
 \begin{wrapfigure}{r}{0.25\textwidth}
-    \includesvg[width=0.25\columnwidth]{img4.svg}
-    \caption{The first two dots and the intersection their lines create}
-    \label{fig:single_2_dot}
-    % \end{wrapfigure}
-    % \begin{wrapfigure}{r}{0.25\textwidth}
-    \vspace{1.5\baselineskip}
-    \includesvg[width=0.25\columnwidth]{img5.svg}
-    \caption{Same as Figure \ref{fig:single_2_dot}, but with parallel line. Main line it on the left}
-    \label{fig:double_2_dot}
-    \vspace{-1.5\baselineskip}
+    \mycorf
+    \includesvg[inkscapelatex=false,width=0.25\columnwidth]{triple_intersect_npara_1.svg}
+    \caption{Contradicting points as a result of the assumption}
+    \label{fig:triple_intersect_npara_1}
+    % \vspace{-1\baselineskip}
 \end{wrapfigure}
-Suppose that such a graph does exist. Then, we can choose a line in it, which we will refer to as main line. There must be at least two dots on it, with both of them lying on at least two other lines. We will draw the diagram in a way such that the main line appears vertical. We will refer to the topmost dot as the first dot, the second-topmost dot as the second dot and so on. We will try to construct such a graph, starting with only the lines that are parallel to the main line and the first two dots.
+Otherwise, all lines that pass through point A is not parallel to line $l_0$ and must intersect with it. We will call the line with the lowest gradient $l_1$, the line with the second lowest gradient $l_2$ and the line with the largest gradient $l_3$. $l_2$ intersect with $l_0$ at point B. There must be another line that pass through point B. However, such a line must intersect with $l_1$ or $l_2$ in the segment between $l_0$ and point A, creating an intersection closer to line $l_0$, as shown in Figure \ref{fig:triple_intersect_npara_1}. This contradict the assumption that point A is the closest point to $l_0$.
 
-After adding all the lines that pass through the first two dots, it's easy to show that there will be an intersection of exactly two lines.\footnote{Since there are more than one line on the first dot and the second dot, there exist a pair of non-parallel lines that does not intersect on the main line. Therefore, there exists an intersection that does not lie on the main line. Suppose that all intersections lie on at least three lines. Since beside the main line and lines that are parallel to it, all lines(that have been drawn so far) must pass through either the first dot or the second dot, the intersection cannot lie on three lines unless one of the line is the is parallel to the main line. Therefore, there exist a line parallel to the main line, and no two lines intersect between the main line and the closest parallel line. Now consider the topmost intersection on the closest parallel line. A line that pass through the second dot must pass through it, and a line that pass through the first dot must intersect below this intersection. Those two line would create an intersection between the two parallel lines, creating a contradiction. Therefore the assumption must be false. } From now on we will only consider the right side of the main line (If no intersection of exactly two lines are on the right, flip the diagram horizontally). Since we assume that every dot is on at least 3 lines, one more line must pass through this dot, and as we have already drawn all the lines parallel to main line, the third line will intersect with the main line at another point. And since we are adding points from top to bottom, the new point must be below the second dot, necessitate the existence of a third dot (Which could be a different dot than the aforementioned intersection).
+In both cases, we end up with a paradox. Thus, the assumption must be false and an intersection of less than three lines must exist.\qed
+\end{my_indent}
 
-\begin{wrapfigure}{R}{0.25\textwidth}
-    \vspace{-2cm}
-    \includesvg[width=0.25\columnwidth]{img6.svg}
-    \caption{Trying to fill the unfilled intersection. Note the new intersection in closer to the main line}
-    \label{fig:single_3_dot}
-    \vspace{-1\baselineskip}
-\end{wrapfigure}
-If we add the third dot, it would require at least two more lines, which will create more unfilled intersection\footnote{Intersection of exactly two lines. It means a dot must be there, and therefore another line must pass through it}, as shown in Figure \ref{fig:single_3_dot}\footnote{While no parallel line is shown here, the following proof will work when there is parallel line, which will be explained in footnote \ref{footnote_para_1}}. This would require more lines to exist, which would need more dots on main line. We will now prove that the graph would never satisfy the condition.
+Now, we propose that $m$ does not increase faster than $n$, or formally,
+\begin{lemma}
+    For $n\geq5$, $m_n\leq m_{n-1}+1$.
+\end{lemma}
 
-Suppose that after adding some number of dots (from top to bottom) and all the lines that they are on, the dot closest to the main line is still unfilled and not on the bottom-most line of the bottom-most dot\footnote{Here, the bottom-most line refer to the line with the lowest (most negative) gradient}\footnote{In order for a intersection to be below the bottom-most line, it must be on a line that intersect with it, it couldn't be the closest dot to main line. And as the dot closest to main line does not lie on the bottom-most line, the closest dot must be above the bottom-most line}. As a result, at least one more line needs to be added, which would intersect with the main line and necessitate the existence of another dot. Now, we will add all lines that pass through the next dot. If one of the new line pass through the intersection, it will create a new unfilled intersection with the bottom-most line, which will be closer to the main line, as shown in Figure \ref{fig:single_3_dot}. Any other intersection created can only involve two lines. Thus, the intersection closest to the main line is still unfilled.\footnote{This allows us to disregard any parallel lines, as we would only need to look at points strictly closer than the closest intersection, which can't be farther than the parallel line.\label{footnote_para_1}}
-
-\begin{wrapfigure}{r}{0.25\textwidth}
-    \vspace{-1\baselineskip}
-    \includesvg[width=0.25\columnwidth]{bottom_line_intersect.svg}
-    \caption{If the bottom line intersect with another line.}
-    \label{fig:bottom_line_intersect}
-\end{wrapfigure}
-The new dot will come will more than one line. If the new bottom line intersects another line, the other new line(s) will intersect with the same line closer to the main line, as shown in Figure \ref{fig:bottom_line_intersect}.
-
-Thus, the construction of the graph is never complete, contradicting the assumption that such a graph exists. Therefore, no graph exists to allow each dot to be on at least three lines.
-
-
-Now, we propose that for $n\geq5$, $m_n\leq m_{n-1}+1$.
-
-Proof:
-
-According to the previous proof, given a graph with $n>1$, there exists a dot that is on no more than two lines. We will show that in every cases, it is possible to remove the dot and construct a new graph with more than $m_{n}-1$ lines:
+\noindent$Proof.$
+\vspace{\dimexpr-\parskip-\baselineskip}
+\begin{my_indent}
+According to Theorem \ref{theorem:three_intersection}, given a graph with $n\geq1$ and $m_n\geq1$\footnote{Note that since $n\geq5$, $m_n\geq6$ and thus the condition will always be met}, there exists a dot that is on no more than two lines. We will show that in every cases, it is possible to remove the dot and construct a new graph with more than $m_{n}-1$ lines:
 
 Case 1, the dot is on $0$ lines. In this case, we can simply remove the dot. The new graph will have $n-1$ dots and $m_n$ lines. Therefore, $m_{n-1}\geq m_{n}$, or $m_{n}\leq m_{n-1}$.
 
@@ -168,16 +154,19 @@ Case 2, the dot is on $1$ line. In this case, we can remove both the dot and the
 Case 3, the dot is on $2$ lines, and one of the lines has more than 2 dots lying on it. In this case we can remove the dot and the other line. In this case, $m_{n-1}\geq m_{n}-1$, or, $m_{n}\leq m_{n-1}+1$.\footnote{The reason this proof can't be used for situation in Figure \ref{fig:exception_1} is that it would leave the line with only one dot on it.}
 
 \begin{wrapfigure}{r}{0.25\textwidth}
+    \mycorf
     \vspace{-0.5\baselineskip}
-    \includesvg[width=0.25\columnwidth]{img3.svg}
+    \includesvg[width=0.25\columnwidth]{n4m5_case_1.svg}
     \caption{3 potential lines when both line have only 2 dots}
     \label{fig:exception_1}
     \vspace{-1\baselineskip}
 \end{wrapfigure}
  Case 4, the dot is on $2$ lines, and both lines have only 2 dots on them. In this case, there can be only up to 5 lines, as shown in Figure \ref{fig:exception_1}. To prove this is so, consider the vertical line on the left. If there is another line not parallel to it, then they must intersect at the dot at top left. The same reasoning apply to the bottom line, leaving only 3 ways to add a line. Thus, in this case, $m_{n}\leq{5}$.
 
-Thus, $m_{n}\leq\max(m_{n-1}+1,5)$. For $m_{n-1}\geq5$, $m_n\leq m_{n-1}+1$.
+In the first three case, Thus, $m_{n}\leq\max(m_{n-1}+1,5)$. For $m_{n-1}\geq5$, $m_n\leq m_{n-1}+1$.
 Since we already know $m_n\geq n$, for $n\geq5$, $m_{n-1}+1\geq n\ge5$, so $m_n\leq m_{n-1}+1$.
+\qed
+\end{my_indent}
 
 For $n=3$, it's trivial to see the maximum number of lines is $3$. From the above proof, $m_4\leq\max(m_3+1,5)=5$ and $m_5\leq m_4+1\leq 5+1=6$.
 
