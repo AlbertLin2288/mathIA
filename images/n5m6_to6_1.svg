@@ -32,32 +32,35 @@
         }
     </style>
     <!-- main -->
-    <line x1="192" x2="192" y1="0" y2="512"/>
-    <line x1="0" x2="512" y1="320" y2="320"/>
-    <line x1="320" x2="320" y1="0" y2="512"/>
-    <line x1="0" x2="512" y1="192" y2="192"/>
-    <line x1="0" x2="512" y1="0" y2="512"/>
-    <line x1="0" x2="512" y1="96" y2="352" class="rd"/>
-    <line x1="384" x2="0" y1="0" y2="384" class="rd"/>
+    <line x1="192" x2="192" y1="000" y2="512"/>
+    <line x1="000" x2="512" y1="320" y2="320"/>
+    <line x1="320" x2="320" y1="000" y2="512"/>
+    <line x1="000" x2="512" y1="192" y2="192"/>
+    <line x1="000" x2="512" y1="000" y2="512"/>
+    <line x1="000" x2="512" y1="512" y2="000"/>
+    <line x1="0" x2="512" y1="256" y2="256" class="rd"/>
+    <line x1="0" x2="512" y1="384" y2="128" class="rd"/>
     <circle r="10" cx="192" cy="320"/><!-- A -->
     <circle r="10" cx="192" cy="192"/><!-- B -->
     <circle r="10" cx="320" cy="320"/><!-- C -->
     <circle r="10" cx="320" cy="192"/><!-- D -->
+    <circle r="10" cx="256" cy="256"/><!-- E -->
     <circle r="10" cx="320" cy="256" class="rd"/>
-    <circle r="10" cx="448" cy="320" class="rd"/>
-    <circle r="10" cx="320" cy="64" class="rd"/>
-    <circle r="10" cx="64" cy="320" class="rd"/>
+    <circle r="10" cx="192" cy="256" class="rd"/>
+    <circle r="10" cx="128" cy="320" class="rd"/>
+    <circle r="10" cx="192" cy="288" class="rd"/>
+    <circle r="10" cx="320" cy="224" class="rd"/>
+    <circle r="10" cx="384" cy="192" class="rd"/>
     <!-- label -->
-    <g transform="translate(5 -18)">
-        <text x="192" y="320">A</text>
-        <text x="192" y="192">B</text>
-        <text x="320" y="320">C</text>
-        <text x="320" y="192">D</text>
-    </g>
+    <text x="196" y="356">A</text>
+    <text x="196" y="176">B</text>
+    <text x="290" y="356">C</text>
+    <text x="290" y="176">D</text>
+    <text x="244" y="240">E</text>
     <!-- <text x="200" y="437" class="line">
         l<tspan>0</tspan>
     </text>
-    <text x="88" y="350" class="line">
+    <text x="88" y="314" class="line">
         l<tspan>1</tspan>
     </text>
     <text x="88" y="182" class="line">

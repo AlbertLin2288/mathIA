@@ -291,14 +291,29 @@ Now consider the process of turning from $n=4$ to $n=5$. Since $m_5=6\ge m_4=5$,
     \includesvg[inkscapelatex=false,width=0.25\columnwidth]{n4m5_to5_2.svg}
     \caption{If the extra line pass through point A.}
     \label{fig:n4m5_to5_2}
-    % \vspace{-1\baselineskip}
+    \vspace{-3\baselineskip}
 \end{wrapfigure}
-Since we will only add one dot, and the new line must go through at least two dots, the new line must pass through one of the pre-existing point. Since the graph is highly symmetric, point D is equivalent to point A, as is point B and C, so we only need to consider one point from each pair, and we only need to consider line with gradient in the range of $[-1,1]$.
+Since we will only add one dot, and the new line must go through at least two dots, the new line must pass through one of the pre-existing point. Since the graph is highly symmetric, point D is equivalent to point A, as is point B to C, so we only need to consider one point from each pair, and we only need to consider line with gradient in the range of $[-1,1]$.
 
 If the new line pass through point B, as shown in Figure \ref{fig:n4m5_to5_1}, at least two new dots would be formed. Hence both case 2 and case 3 would fail.
 
 If the new line pass through point A, as shown in Figure \ref{fig:n4m5_to5_2}, at least two new dots would be formed for all line except the blue line. Thus, the only way to construct a graph with $n=5$ and $m=6$ is Figure \ref{fig:ex_n5m6}.
 
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \vspace{-1\baselineskip}
+    \includesvg[inkscapelatex=false,width=0.25\columnwidth]{n5m6_to6_1.svg}
+    \caption{If the extra line pass through point E.}
+    \label{fig:n5m6_to6_1}
+    \includesvg[inkscapelatex=false,width=0.25\columnwidth]{n5m6_to6_2.svg}
+    \caption{If the extra line pass through point A.}
+    \label{fig:n5m6_to6_2}
+    % \vspace{-1\baselineskip}
+\end{wrapfigure}
+Then, we consider going from $n=5$ to $n=6$. Suppose that $m_6\geq7=m_5+1$, then case 2 or 3 must hold in lemma \ref{theorem:increment}. Like before, this means the extra line must pass through at least one pre-existing point. There are only 2 ways of achieveing so.
+
+If the new line pass through the center point, denoted by point E as shown in Figure \ref{fig:n5m6_to6_1}, then at least two dots would form, failing the requirement for case 2 and 3. As seen in Figure \ref{fig:n5m6_to6_2}, the same thing happen when the line pass through point A (and since the graph is symmetric, point B, C and D as well). Thus, the assumption must be false. Therefore, $m_6<7$. Since $m_6\geq6$ (lemma \ref{theorem:lower_bound}), $m_6=6$.
+
+\null % warpfig doesn't work for the last paragraph
 \end{appendices}
 
 \end{document}

@@ -67,7 +67,7 @@
         <text x="320" y="320">C</text>
         <text x="320" y="192">D</text>
     </g>
-    <text x="200" y="437" class="line">
+    <!-- <text x="200" y="437" class="line">
         l<tspan>0</tspan>
     </text>
     <text x="88" y="350" class="line">
@@ -78,5 +78,5 @@
     </text>
     <text x="328" y="437" class="line">
         l<tspan>3</tspan>
-    </text>
+    </text> -->
 </svg>
