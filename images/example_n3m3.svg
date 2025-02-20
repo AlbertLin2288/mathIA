@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+    <style>
+        line{
+            stroke-width: 2;
+            stroke: black;
+        }
+        circle{
+            fill: black;
+        }
+    </style>
+    <!-- main -->
+    <line x1="0" x2="512" y1="320" y2="320"/>
+    <line x1="160" x2="416" y1="0" y2="512"/>
+    <line x1="96" x2="352" y1="512" y2="0"/>
+    <circle r="10" cx="256" cy="192"/>
+    <circle r="10" cx="192" cy="320"/>
+    <circle r="10" cx="320" cy="320"/>
+</svg>

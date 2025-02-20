@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+    <style>
+        line{
+            stroke-width: 2;
+            stroke: black;
+        }
+        circle{
+            fill: black;
+        }
+    </style>
+    <!-- main -->
+    <line x1="0" x2="512" y1="256" y2="256"/>
+    <circle r="10" cx="192" cy="256"/>
+    <circle r="10" cx="320" cy="256"/>
+    <!-- prevent shrinking -->
+    <line x1="0" x2="512" y1="0" y2="512" opacity="0%"/>
+</svg>
