@@ -67,11 +67,11 @@
 \begin{titlepage}
 \begin{center}
 \vspace*{4cm}
-{\huge\textbf{???}}
+{\huge\textbf{Math IA}}
 \end{center}
 \vspace{1cm}
 \begin{flushright}
-Title\\
+% Title\\
 Mathematics, Exam Session of 2025\\
 \end{flushright}
 \end{titlepage}
@@ -80,7 +80,7 @@ Mathematics, Exam Session of 2025\\
 \clearpage
 
 \section{Introduction}
-Last year, in January, I participated in the  first round of Netherland Mathematics Olympiad. While the result is satisfactory, there is a problem that no one but me got wrong. So I would really like to prove that I'm better than that, by making the problem harder, and then solve it.
+Last year, in January, I participated in the first round of Netherland Mathematics Olympiad. While the result is satisfactory, there was a problem that no one but me got wrong. So I would really like to prove that I'm better than that, by making the problem harder, and then solve it.
 The problem is:
 
 \begin{displayquote}
@@ -96,9 +96,9 @@ What is the maximum number of lines Xander could have drawn?\footnote{\href{http
     \label{fig:ans}
     \vspace{-1\baselineskip}
 \end{wrapfigure}
-The answer for this question is $6$, as shown in Figure \ref{fig:ans}. The organization also gave a proof.\footnote{Which can be found at \href{https://wiskundeolympiade.nl/phocadownload/opgaven/1e-ronde/2024/Solutions.pdf}{https://wiskundeolympiade.nl/phocadownload/opgaven/1e-ronde/2024/Solutions.pdf} Later in this essay, I will provide a different proof.}. But to prove my ability, I need to make it harder. The question asks for the maximal number of lines given $5$ points. So how about trying to solve the problem for any number of points?
+The answer for this question is $6$, as shown in Figure \ref{fig:ans}. The organization also gave a proof.\footnote{Which can be found at \href{https://wiskundeolympiade.nl/phocadownload/opgaven/1e-ronde/2024/Solutions.pdf}{https://wiskundeolympiade.nl/phocadownload/opgaven/1e-ronde/2024/Solutions.pdf} Later in this essay, I will provide a different proof.}. But to prove my ability, I need to make it harder. The question asks for the maximal number of lines given $5$ points. But I will try to answer the question for any number of points.
 
-For notation, I will use $n$ to denote the number of points, $m_n$ to denote the maximum number of lines with $n$ points, and I will use ``point(s)" and ``dot(s)" interchangeably. ``graph" will refer to a way to draw the lines and dots.
+In this essay, I will use $n$ to denote the number of points, $m_n$ to denote the maximum number of lines one can draw with $n$ points, while following the requirements from the question. I will use ``point(s)" and ``dot(s)" interchangeably, and ``graph" will refer to a way to draw the lines and dots.
 \clearpage
 
 \section{Solving the problem}\label{section:start}
@@ -107,14 +107,14 @@ For notation, I will use $n$ to denote the number of points, $m_n$ to denote the
     \caption{general solution with $n=6$}
     \label{fig:gen_6}
 \end{wrapfigure}
-One method I found efficient in solving those type of problems is trying to prove some random hypothesis. If the hypothesis is true, you are just doing what need to be done. If it's false, it's much easier to find an exception to disprove the hypothesis after trying to prove it and struggle on the weak point of the logic. But to do that, one first need to have an idea what the answer will be like. So I tried to solve the problem for a few given $n$. Soon, I managed to find a solution that seems to work for all $n\geq 3$, as shown in Figure \ref{fig:gen_6}.
+One method I found efficient in solving those type of problems is trying to come up with some hypothesis to prove. If the hypothesis is true, you are just doing what needs to be done. If it is false, it is much easier to find an exception to disprove the hypothesis after trying to prove it and struggling on the weak point of the logic. But to do that, one first needs to have an idea what the answer will be like. So I tried to solve the problem for a few given $n$. Soon, I managed to find a solution that seems to work for all $n\geq 3$, as shown in Figure \ref{fig:gen_6}.
 % connect the 2 paragrah
 
 By arranging $n-1$ dots in a line and the last one above it, we can draw $n-1$ lines between the last dot and the dots on the line. Together with the line by the $n-1$ dots, we can get $n$ lines in total. Hence, we can establish for $n\geq 3$, that we can draw at least $n$ lines.
 
-And now, I hypothesize that this is also the upper bound. As shown above, this does not apply to $n=5$, where it's possible to draw 6 lines. But I can try to prove it's true for $n>5$.
+And now, I hypothesize that this is also the upper bound. As shown above, this does not apply to $n=5$, where it is possible to draw 6 lines. But I can try to prove it is true for $n>5$.
 
-After some works, I managed to come up with a proof for that. Since my process is a bit messy, I have rearranged the order in which lemmas are presented. For brevity, some less important and obvious conclusion will be explained in the footnote.
+After some efforts, I managed to produce a proof for that. Since my process is a bit messy, I have rearranged the order in which lemmas are presented. For brevity, some less important and obvious conclusions will be explained in the footnote.
 
 \section{Proof}
 
@@ -125,32 +125,33 @@ First, we shall reiterate what has been shown in section \ref{section:start}.
 For $n\geq3$, $m_n\geq n$.
 \end{lemma}
 
-The proof is omited, as it should be trivial to turn the previous example into an informal proof.
+The proof is omitted, as it should be trivial to turn the previous example into an informal proof.
 
 Next, we will go on to prove an interesting, but seemly unrelated statement.
 
 \begin{theorem}
 \label{theorem:three_intersection}
-Given $m>0$ lines lying on a plane, if every line intersects at more than one point, then there exist an intersection of only two lines.
+Given $m>0$ lines lying on a plane, if every line intersects at more than one point, then there exists an intersection of only two lines.
 \end{theorem}
 % First, I will show that there is no way to construct the graph where each dot is on at least three lines and each line has at least two dots.
 
 \myproof
 \begin{my_indent}
-Given $m>0$ lines on a plane. We will choose one line as the base line($l_0$), and construct a coordinate system with y axis parallel to $l_0$. Suppose there is no intersection of less than two lines. 
+Given $m>0$ lines on a plane. We will choose one line as the base line($l_0$) and construct a coordinate system with y axis parallel to $l_0$. Suppose there is no intersection of less than two lines. 
 
-Consider the intersection that is closest to $l_0$ but does not lies on it (if there are multiple, choose the one with the largest $y$ value). We will name this point A. We can, without loss of generality, assume that point A is to the right of $l_0$. According to our assumption, at least three lines pass through point A.
+Consider the intersection that is closest to $l_0$ but does not lie on it (if there are multiple, choose the one with the largest $y$ value). We will name this point A. We can, without loss of generality, assume that point A is to the right of $l_0$. According to our assumption, at least three lines pass through point A.
 
-Such a point must exists. To show so, suppose no such point exists, that is, every intersection lies on $l_0$. Since every line must intersect at at least two place, there must be a line which intersect with $l_0$. However, since two lines can only intersect once, and every intersection in on $l_0$, the new line would intersect only once, creating an contradiction. Hence, the assumption must be false and such a point exists.
+Such a point must exist. To show so, suppose no such point exists, that is, every intersection lies on $l_0$. Since every line must intersect at no less than two places, there must be a line which intersect with $l_0$. However, since two lines can only intersect once, and every intersection in on $l_0$, the new line would intersect only once, creating a contradiction. Hence, the assumption must be false and such a point exists.
 
 \begin{wrapfigure}{r}{0.25\textwidth}
     \mycorf
+    \vspace{-2.5\baselineskip}
     \includesvg[inkscapelatex=false,width=0.25\columnwidth]{triple_intersect_para_1.svg}
     \caption{Contradicting points as a result of the assumption}
     \label{fig:triple_intersect_para_1}
-    % \vspace{-1\baselineskip}
+    \vspace{-2\baselineskip}
 \end{wrapfigure}
-If one of the line that pass through point A is parallel to $l_0$, which we will refer to as $l_1$. Then since we chose A to be the point with the largest $y$ value when distance to $l_0$ is the same, $l_1$ does not have any intersection above point A. At least two other lines pass through point A. Among those lines, we will denote the line with the lowest gradient(most negative) as line $l_2$, the line with the second lowest gradient as $l_3$, and the intersection of $l_0$ and $l_2$ as point B. There must be a third line that pass through point B. However, if the third line has a larger gradient, it would intersects with line $l_1$ at point C, above point A. And if the third line has a lowest gradient than line $l_2$, it would intersect with $l_3$ at point C', which is closer to line $l_0$ than point A, creating a contradiction.
+If one of the lines that pass through point A is parallel to $l_0$, which we will refer to as $l_1$. Then since we chose A to be the point with the largest $y$ value when distance to $l_0$ is the same, $l_1$ does not have any intersection above point A. At least two other lines pass through point A. Among those lines, we will denote the line with the lowest gradient (most negative) as line $l_2$, the line with the second lowest gradient as $l_3$, and the intersection of $l_0$ and $l_2$ as point B. There must be a third line that passes through point B. However, if the third line has a larger gradient, it would intersect with line $l_1$ at point C, above point A. And if the third line has a lowest gradient than line $l_2$, it would intersect with $l_3$ at point C', which is closer to line $l_0$ than point A, creating a contradiction.
 
 \begin{wrapfigure}{r}{0.25\textwidth}
     \mycorf
@@ -159,7 +160,7 @@ If one of the line that pass through point A is parallel to $l_0$, which we will
     \label{fig:triple_intersect_npara_1}
     % \vspace{-1\baselineskip}
 \end{wrapfigure}
-Otherwise, all lines that pass through point A is not parallel to line $l_0$ and must intersect with it. We will call the line with the lowest gradient $l_1$, the line with the second lowest gradient $l_2$ and the line with the largest gradient $l_3$. $l_2$ intersect with $l_0$ at point B. There must be another line that pass through point B. However, such a line must intersect with $l_1$ or $l_2$ in the segment between $l_0$ and point A, creating an intersection closer to line $l_0$, as shown in Figure \ref{fig:triple_intersect_npara_1}. This contradict the assumption that point A is the closest point to $l_0$.
+Otherwise, all lines that pass through point A is not parallel to line $l_0$ and must intersect with it. We will call the line with the lowest gradient $l_1$, the line with the second lowest gradient $l_2$ and the line with the largest gradient $l_3$. $l_2$ intersect with $l_0$ at point B. There must be another line that passes through point B. However, such a line must intersect with $l_1$ or $l_2$ in the segment between $l_0$ and point A, creating an intersection closer to line $l_0$, as shown in Figure \ref{fig:triple_intersect_npara_1}. This contradicts the assumption that point A is the closest point to $l_0$.
 
 In both cases, we end up with a paradox. Thus, the assumption must be false and an intersection of less than three lines must exist.\qed
 \end{my_indent}
@@ -179,7 +180,7 @@ Case 1, the dot is on $0$ lines. In this case, we can simply remove the dot. The
 
 Case 2, the dot is on $1$ line. In this case, we can remove both the dot and the line. In this case, $m_{n-1}\geq m_{n}-1$, or $m_{n}\leq m_{n-1}+1$.
 
-Case 3, the dot is on $2$ lines, and one of the lines has more than 2 dots lying on it. In this case we can remove the dot and the other line. In this case, $m_{n-1}\geq m_{n}-1$, or, $m_{n}\leq m_{n-1}+1$.\footnote{The reason this proof can't be used for situation in Figure \ref{fig:exception_1} is that it would leave the line with only one dot on it.}
+Case 3, the dot is on $2$ lines, and one of the lines has more than 2 dots lying on it. In this case we can remove the dot and the other line. In this case, $m_{n-1}\geq m_{n}-1$, or, $m_{n}\leq m_{n-1}+1$.\footnote{The reason this proof can not be used for situation in Figure \ref{fig:exception_1} is that it would leave the line with only one dot on it.}
 
 \begin{wrapfigure}{r}{0.25\textwidth}
     \mycorf
@@ -189,14 +190,14 @@ Case 3, the dot is on $2$ lines, and one of the lines has more than 2 dots lying
     \label{fig:exception_1}
     \vspace{-1\baselineskip}
 \end{wrapfigure}
-Case 4, the dot is on $2$ lines, and both lines have only 2 dots on them. In this case, there can be only up to 5 lines, as shown in Figure \ref{fig:exception_1}. To prove this is so, consider line $l_0$. Any line not parallel to it must intersect with it at point B. The same reasoning apply to the line $l_1$ and point C. Therefore, only a maximal of three lines could be added. Thus, in this case, $m_{n}\leq{5}$.
+Case 4, the dot is on $2$ lines, and both lines have only 2 dots on them. In this case, there can be only up to 5 lines, as shown in Figure \ref{fig:exception_1}. To prove this is so, consider line $l_0$. Any line not parallel to it must intersect with it at point B. The same reasoning applies to line $l_1$ and point C. Therefore, only a maximum of three lines could be added. Thus, in this case, $m_{n}\leq{5}$.
 
 Thus, $m_{n}\leq\max(m_{n-1}+1,5)$. For $m_{n-1}\geq5$, $m_n\leq m_{n-1}+1$.
 According to Lemma \ref{theorem:lower_bound}, for $n\geq5\geq3$, $m_{n-1}+1\geq (n-1)+1\geq5$, so $m_n\leq m_{n-1}+1$.
 \qed
 \end{my_indent}
 
-For $n=3$, it's trivial to see that $m_n\leq3$.\footnote{Since each line must pass through at least two points, there can be a maximal of $\frac{3\times(3-1)}{2}=3$ lines. And an example of $n=3$, $m=3$ could easily be drawn.} From the above proof, $m_4\leq\max(m_3+1,5)=5$ and $m_5\leq m_4+1\leq 5+1=6$. To show those upperbound are also the lowerbound, there are examples in Appendix \ref{appendix:examples}.
+For $n=3$, it is trivial to see that $m_n\leq3$.\footnote{Since each line must pass through at least two points, there can be a maximum of $\frac{3\times(3-1)}{2}=3$ lines. And an example of $n=3$, $m=3$ could easily be drawn.} From the above proof, $m_4\leq\max(m_3+1,5)=5$ and $m_5\leq m_4+1\leq 5+1=6$. To show those upper bound are also the lower bound, there are examples in Appendix \ref{appendix:examples}.
 
 For $n=6$, it can be proven that $m_n=6$. However, since the proof is long and tedious, it can be found in appendix \ref{appendix:proof_n6}.
 
@@ -204,7 +205,7 @@ For $n=6$, it can be proven that $m_n=6$. However, since the proof is long and t
 
 % Since $m_5=6$, according to the previous proof, $m_6\leq7$. Suppose $m_6>6$, then $m_6=7$.
 
-% From our first conclusion, we know there exist a dot that lies on 2 or less lines. Since $m_6=m_5+1$, from the second conclusion we know the dot can't lie on 0 lines.
+% From our first conclusion, we know there exist a dot that lies on 2 or less lines. Since $m_6=m_5+1$, from the second conclusion we know the dot can not lie on 0 lines.
 
 % If the dot lies on 1 line, the removal of the dot would create a graph with $n=5$ and $m=7$. Hence, the removal must have caused the line to have only one dot. So all other lines must either be parallel to the line, or intersect with it at that dot.
 
@@ -245,9 +246,8 @@ m_n=
 \clearpage
 \section{conclusion}
 %pending rewrite
-There you have it. We have not only found the answer to the problem, but also answer for any value of $n$ if they change it. Although it seems they could have only chosen $n=4$ or $n=5$, since other values are all too easy to find. Not too easy to prove, though. Many times I thought I have gotten a good proof, but then found that I didn't consider how multiple lines could intersect at the same point. This drove me to put an upper bound for intersection of lines, leading me to prove that there is no graph such that each line has at least two points with each points on at least three lines. While it's a really interesting conclusion, I feel like the proof could be less messy. 
-% For $n=6$, I would prefer having an elegant proof, but most method I thought of have way too many special cases that need to be listed, so I have to resort to writing computer program to assist me. 
-Overall, I believe this proof is rather rigorous, although there are certain points that is difficult to convey without drawing a dozen diagram.
+There you have it. We have not only found the answer to the problem, but also answer for any value of $n$ if they change it. Although it seems that the only value that is of interest is $n=4$ or $n=5$. The proof for that was not easy to come up with, though. Many times I thought I have gotten a good proof, but then found that I didn't consider how multiple lines could intersect at the same point. This caused me to realize that I need to put an upper bound on the number of lines that could intersect, leading to the proof of Theorem \ref{theorem:three_intersection}. Regarding Theorem \ref{theorem:three_intersection}, while I feel  that the proof is a bit messy, I'm really proud of the theorem itself, which is very elegant and interesting. Many proof here rely heavily on images and exhaustive search through possibility. For example, I had to move the proof for $m_6=6$ to an appendix because the proof would be too long and disrupt the chain of deduction. A better proof, while not necessary, would be preferred. 
+Overall, I believe this proof is rather rigorous, and the journey to get here was quite enjoyable.
 
 % \clearpage
 % \section{Work cited}
@@ -279,39 +279,41 @@ Overall, I believe this proof is rather rigorous, although there are certain poi
 \label{appendix:proof_n6}
 We have shown $m_3=3$, $m_4=5$ and $m_5=6$. Here, I will first show that the solution for $n=4$ and $n=5$ are unique.
 
-Consider when $n=4$. In the proof for lemma \ref{theorem:increment}, we considered four cases. In case 1, $m_n\leq m_{n-1}$ and in case 2 and 3, $m_n\leq m_{n-1}+1$. Given $m_3=3$ and $m_4=5$, none of those cases could hold true. It follows that case 4 must hold true here, and the only graph that allows for $m_4=5$ is Figure \ref{fig:ex_n4m5}.\footnote{Here, we will consider two graph that differ by a affine {\color{red} note to self:debate if this can be ommited} transformation as the same graph.}
+Consider when $n=4$. In the proof for lemma \ref{theorem:increment}, we considered four cases. In case 1, $m_n\leq m_{n-1}$ and in case 2 and 3, $m_n\leq m_{n-1}+1$. Given $m_3=3$ and $m_4=5$, none of those cases could hold true. It follows that case 4 must hold true here, and the only graph that allows for $m_4=5$ is Figure \ref{fig:ex_n4m5}.\footnote{Here, we will consider two graph that differ by a affine 
+% {\color{red} note to self:debate if this can be ommited} 
+transformation as the same graph.}
 
 Now consider the process of turning from $n=4$ to $n=5$. Since $m_5=6\ge m_4=5$, case 1 and case 4 would fail. Hence, we must be able to turn Figure \ref{fig:ex_n4m5} to Figure \ref{fig:ex_n5m6} through reversing the methods listed in case 2 or 3, that is, by adding a line and a dot.
 
 \begin{wrapfigure}{r}{0.25\textwidth}
     \vspace{-1\baselineskip}
     \includesvg[inkscapelatex=false,width=0.25\columnwidth]{n4m5_to5_1.svg}
-    \caption{If the extra line pass through point B.}
+    \caption{If the extra line passes through point B.}
     \label{fig:n4m5_to5_1}
     \includesvg[inkscapelatex=false,width=0.25\columnwidth]{n4m5_to5_2.svg}
-    \caption{If the extra line pass through point A.}
+    \caption{If the extra line passes through point A.}
     \label{fig:n4m5_to5_2}
     \vspace{-3\baselineskip}
 \end{wrapfigure}
-Since we will only add one dot, and the new line must go through at least two dots, the new line must pass through one of the pre-existing point. Since the graph is highly symmetric, point D is equivalent to point A, as is point B to C, so we only need to consider one point from each pair, and we only need to consider line with gradient in the range of $[-1,1]$.
+Since we will only add one dot, and the new line must go through at least two dots, the new line must pass through one of the pre-existing points. Since the graph is highly symmetric, point D is equivalent to point A, as is point B to C, so we only need to consider one point from each pair, and we only need to consider line with gradient in the range of $[-1,1]$.
 
-If the new line pass through point B, as shown in Figure \ref{fig:n4m5_to5_1}, at least two new dots would be formed. Hence both case 2 and case 3 would fail.
+If the new line passes through point B, as shown in Figure \ref{fig:n4m5_to5_1}, at least two new dots would be formed. Hence both case 2 and case 3 would fail.
 
-If the new line pass through point A, as shown in Figure \ref{fig:n4m5_to5_2}, at least two new dots would be formed for all line except the blue line. Thus, the only way to construct a graph with $n=5$ and $m=6$ is Figure \ref{fig:ex_n5m6}.
+If the new line passes through point A, as shown in Figure \ref{fig:n4m5_to5_2}, at least two new dots would be formed for all line except the blue line. Thus, the only way to construct a graph with $n=5$ and $m=6$ is Figure \ref{fig:ex_n5m6}.
 
 \begin{wrapfigure}{r}{0.25\textwidth}
     \vspace{-1\baselineskip}
     \includesvg[inkscapelatex=false,width=0.25\columnwidth]{n5m6_to6_1.svg}
-    \caption{If the extra line pass through point E.}
+    \caption{If the extra line passes through point E.}
     \label{fig:n5m6_to6_1}
     \includesvg[inkscapelatex=false,width=0.25\columnwidth]{n5m6_to6_2.svg}
-    \caption{If the extra line pass through point A.}
+    \caption{If the extra line passes through point A.}
     \label{fig:n5m6_to6_2}
     % \vspace{-1\baselineskip}
 \end{wrapfigure}
-Then, we consider going from $n=5$ to $n=6$. Suppose that $m_6\geq7=m_5+1$, then case 2 or 3 must hold in lemma \ref{theorem:increment}. Like before, this means the extra line must pass through at least one pre-existing point. There are only 2 ways of achieveing so.
+Then, we consider going from $n=5$ to $n=6$. Suppose that $m_6\geq7=m_5+1$, then case 2 or 3 must hold in lemma \ref{theorem:increment}. Like before, this means the extra line must pass through at least one pre-existing point. There are only 2 ways of achieving so.
 
-If the new line pass through the center point, denoted by point E as shown in Figure \ref{fig:n5m6_to6_1}, then at least two dots would form, failing the requirement for case 2 and 3. As seen in Figure \ref{fig:n5m6_to6_2}, the same thing happen when the line pass through point A (and since the graph is symmetric, point B, C and D as well). Thus, the assumption must be false. Therefore, $m_6<7$. Since $m_6\geq6$ (lemma \ref{theorem:lower_bound}), $m_6=6$.
+If the new line pass through the center point, denoted by point E as shown in Figure \ref{fig:n5m6_to6_1}, then at least two dots would form, failing the requirement for case 2 and 3. As seen in Figure \ref{fig:n5m6_to6_2}, the same thing happens when the line pass through point A (and since the graph is symmetric, point B, C and D as well). Thus, the assumption must be false. Therefore, $m_6<7$. Since $m_6\geq6$ (lemma \ref{theorem:lower_bound}), $m_6=6$.
 
 \null % warpfig doesn't work for the last paragraph
 \end{appendices}
